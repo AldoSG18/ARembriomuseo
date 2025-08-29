@@ -102,9 +102,9 @@
     <div id="landing-page">
         <div id="info">
             <div class="titulo-con-imagenes">
-                <img src="imagenes/medicina logo.png" alt="imagen izquierda">
+                <img src="imagenes/medicina_logo.png" alt="imagen izquierda">
                 <h1>Espermatogénesis</h1>
-                <img src="imagenes/univesidad logo.png" alt="Imagen derecha">
+                <img src="imagenes/univesidad_logo.png" alt="Imagen derecha">
             </div>
             <h2>Museo de embriología</h2>
             <h3>Universidad Autónoma de Chihuahua</h3>
@@ -116,7 +116,7 @@
 
     <div id="unity-container"></div>
     
-    <script src="Build/unitybuild.loader.js"></script>
+    <script src="Build/aa.loader.js"></script>
     <script>
         const unityContainer = document.querySelector("#unity-container");
         const startButton = document.querySelector("#start-ar");
@@ -127,12 +127,12 @@
             unityContainer.style.display = 'block';
 
             createUnityInstance(unityContainer, {
-                dataUrl: "Build/unitybuild.data",
-                frameworkUrl: "Build/unitybuild.framework.js",
-                codeUrl: "Build/unitybuild.wasm",
+                dataUrl: "Build/aa.data",
+                frameworkUrl: "Build/aa.framework.js",
+                codeUrl: "Build/aa.wasm",
                 streamingAssetsUrl: "StreamingAssets",
                 companyName: "DefaultCompany",
-                productName: "unitybuild",
+                productName: "unityweb1",
                 productVersion: "1.0",
             });
         });
