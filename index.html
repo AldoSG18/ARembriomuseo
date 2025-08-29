@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Espermatogénesis - Experiencia AR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        body {
+            background: linear-gradient(45deg, rgba(152, 29, 151, 1) 40%, rgba(41, 41, 41, 1) 65%, rgba(252, 176, 69, 1) 80%);
+            color: #333;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .titulo-con-imagenes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        .titulo-con-imagenes img {
+            width: 120px;
+            height: auto;
+            border-radius: 15px;
+        }
+        h1 {
+            font-size: 2.8em;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        h2, h3 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin: 5px 0;
+        }
+        #info {
+            max-width: 800px;
+            width: 90%;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            text-align: justify;
+            margin: 15px 0;
+            color: #555;
+        }
+        #start-ar, #salir {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        #start-ar:hover, #salir:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        #unity-container {
+            width: 100%;
+            height: 100vh;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .titulo-con-imagenes {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .titulo-con-imagenes img {
+                width: 100px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            #info {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="landing-page">
+        <div id="info">
+            <div class="titulo-con-imagenes">
+                <img src="imagenes/medicina logo.png" alt="imagen izquierda">
+                <h1>Espermatogénesis</h1>
+                <img src="imagenes/univesidad logo.png" alt="Imagen derecha">
+            </div>
+            <h2>Museo de embriología</h2>
+            <h3>Universidad Autónoma de Chihuahua</h3>
+            <p>La embriología es el estudio del desarrollo de un embrión desde la fecundación del óvulo hasta la octava semana de gestación...</p>
+            <p>Con esta aplicación usted podrá obtener una experiencia de realidad virtual donde podrá ver modelos 3D de la espermatogénesis</p>
+        </div>
+        <button id="start-ar">Iniciar Realidad Aumentada</button>
+    </div>
+
+    <div id="unity-container"></div>
+    
+    <script src="Build/unitybuild.loader.js"></script>
+    <script>
+        const unityContainer = document.querySelector("#unity-container");
+        const startButton = document.querySelector("#start-ar");
+        let unityInstance = null;
+
+        startButton.addEventListener("click", () => {
+            document.querySelector("#landing-page").style.display = 'none';
+            unityContainer.style.display = 'block';
+
+            createUnityInstance(unityContainer, {
+                dataUrl: "Build/unitybuild.data",
+                frameworkUrl: "Build/unitybuild.framework.js",
+                codeUrl: "Build/unitybuild.wasm",
+                streamingAssetsUrl: "StreamingAssets",
+                companyName: "DefaultCompany",
+                productName: "unitybuild",
+                productVersion: "1.0",
+            });
+        });
+    </script>
+</body>
+</html>
