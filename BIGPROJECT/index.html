@@ -116,7 +116,7 @@
 
     <div id="unity-container"></div>
     
-    <script src="Build/unitybuild.loader.js"></script>
+    <script src="Build/aa.loader.js"></script>
     <script>
         const unityContainer = document.querySelector("#unity-container");
         const startButton = document.querySelector("#start-ar");
@@ -127,15 +127,16 @@
             unityContainer.style.display = 'block';
 
             createUnityInstance(unityContainer, {
-                dataUrl: "Build/unitybuild.data",
-                frameworkUrl: "Build/unitybuild.framework.js",
-                codeUrl: "Build/unitybuild.wasm",
+                dataUrl: "Build/aa.data",
+                frameworkUrl: "Build/aa.framework.js",
+                codeUrl: "Build/aa.wasm",
                 streamingAssetsUrl: "StreamingAssets",
                 companyName: "DefaultCompany",
-                productName: "unitybuild",
+                productName: "unityweb1",
                 productVersion: "1.0",
             });
         });
     </script>
 </body>
+
 </html>
